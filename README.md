@@ -11,7 +11,7 @@ RUN AS ROOT
 
 Commands list:
 
-    git clone git@github.com:715MrDydosinka/dotfiles.git /usr/share/dotfiles
+    git clone https://github.com/715MrDydosinka/dotfiles.git /usr/share/dotfiles
     
     cd /usr/share/dotfiles
     
