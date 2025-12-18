@@ -1,4 +1,10 @@
 #!/bin/sh
+
+if [ "$(id -u)" -ne 0 ]; then
+    echo "Script must be raised by root!" >&2
+    exit 1
+fi
+
 SCRIPT_DIR="$(dirname "$(realpath "$0")")"
 echo "Script directory: $SCRIPT_DIR"
 cd $SCRIPT_DIR
