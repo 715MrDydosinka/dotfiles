@@ -51,10 +51,10 @@ else
     echo "Installing Sway failed"
 fi
 
-echo "Installing Fastfetch"
+echo "Installing fetches"
 apt install fastfetch hyfetch -y
 if [ $? -eq 0 ]; then
-    cp "$SCRIPT_DIR/hyfetch.json" "$CFG_DIR"
+    cp "$SCRIPT_DIR/hyfetch_config" "$CFG_DIR/hyfetch.json"
 else
     echo "Installing Fetches failed"
 fi
