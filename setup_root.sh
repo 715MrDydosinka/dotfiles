@@ -37,7 +37,7 @@ else
 fi
 
 echo "Installing Sway"
-apt install sway swaylock xwayland mako-notifier libnotify-bin -y
+apt install sway swaylock xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
 if [ $? -eq 0 ]; then
 
     mv "$SWAYCFG_DIR" "$CFG_DIR/sway.old"
@@ -114,7 +114,11 @@ echo "Installing Rust Cargo"
 
 sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
-apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential grim slurp wl-clipboard obs-studio vlc remmina vlc -y
+echo "Installing misc applications"
+apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina vlc -y
+if [ &? -ne 0 ]; then
+    echo "Something went wrong while installing misc application :)"
+fi
 
 echo ""
 echo ""
