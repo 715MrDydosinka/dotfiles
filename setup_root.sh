@@ -105,7 +105,7 @@ fi
 echo "Installing Neovim"
 apt install neovim -y
 if [ $? -eq 0 ]; then
-    mv "$SCRIPT_DIR/nvim" "$CFG_DIR/nvim.old"
+    mv "$CFG_DIR/nvim" "$CFG_DIR/nvim.old"
     cp -Rf "$SCRIPT_DIR/nvim" "$CFG_DIR"
 fi
 
