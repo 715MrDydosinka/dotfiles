@@ -15,9 +15,9 @@ Commands list:
     
     `sudo ./setup_root.sh`
     
-    And just follow the steps in script;
+And just follow the steps in script;
     
-    Done.
+Done.
 
 ## Licence
 [White-Heterosexual-Male Licence](./LICENSE)
