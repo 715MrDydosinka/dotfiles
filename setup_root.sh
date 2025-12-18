@@ -29,6 +29,9 @@ echo "Installing Fish"
 apt install fish -y
 if [ $? -eq 0 ]; then
     usermod -s "/usr/bin/fish" "$USERNAME"
+    mkdir -p "$CFG_DIR/fish"
+    mv "$CFG_DIR/config.fish" "$CFG_DIR/config.fish.old"
+    cp "$SCRIPT_DIR/fish_config" "$CFG_DIR/config.fish"
 else
     echo "Installing Fish failed"
 fi
