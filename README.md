@@ -1,7 +1,7 @@
 # Hlupa's DotFiles
 My DotFiles to makeup clear Debian install.
 
-## Requirments
+## Requirements
 Install Git:
 
     apt install git
