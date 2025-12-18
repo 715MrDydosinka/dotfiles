@@ -1,0 +1,5 @@
+#!/bin/sh
+while 
+	date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1
+done
+
