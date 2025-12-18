@@ -106,7 +106,7 @@ echo "Installing Neovim"
 apt install neovim -y
 if [ $? -eq 0 ]; then
     mv "$SCRIPT_DIR/nvim" "$CFG_DIR/nvim.old"
-    cp -R "$SCRIPT_DIR/nvim" "$CFG_DIR"
+    cp -Rf "$SCRIPT_DIR/nvim" "$CFG_DIR"
 fi
 
 echo "Installing Rust Cargo"
@@ -115,7 +115,7 @@ echo "Installing Rust Cargo"
 sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
 echo "Installing misc applications"
-apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina vlc -y
+apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus -y
 if [ &? -ne 0 ]; then
     echo "Something went wrong while installing misc application :)"
 fi
