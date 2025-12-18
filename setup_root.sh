@@ -80,7 +80,6 @@ if [ $? -eq 0 ]; then
 
 fi
 
-
 # Installing sound
 echo "Installing Pipewire"
 apt install pipewire-audio pavucontrol -y
