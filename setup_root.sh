@@ -4,7 +4,7 @@ echo "Script directory: $SCRIPT_DIR"
 cd $SCRIPT_DIR
 
 USERNAME="hlupa"
-read -p "Enter username: " $USERNAME
+read -p "Enter your main user name: " $USERNAME
 HOMEDIR=$(getent passwd hlupa | cut -d: -f6)
 
 CFG_DIR="$HOMEDIR/.config"
@@ -34,7 +34,7 @@ else
 fi
 
 echo "Installing Sway"
-apt install sway swaylock xwayland -y
+apt install sway swaylock xwayland mako-notifier libnotify-bin -y
 if [ $? -eq 0 ]; then
 
     mv "$SWAYCFG_DIR" "$CFG_DIR/sway.old"
@@ -62,14 +62,14 @@ if [ $? -eq 0 ]; then
     mkdir -p "$SCRIPT_DIR/tmp"
 
     echo "Installing Hiddify"
-    wget -O "$SCRIPT_DIR/tmp/hiddify.deb" "https://github.com/hiddify/hiddify-next/releases/download/v2.3.1/Hiddify-Debian-x64.deb"
+    #wget -O "$SCRIPT_DIR/tmp/hiddify.deb" "https://github.com/hiddify/hiddify-next/releases/download/v2.3.1/Hiddify-Debian-x64.deb"
     dpkg -i "$SCRIPT_DIR/tmp/hiddify.deb"
     if [ $? -ne 0 ]; then
     	echo "Installing Hiddify failed"
     fi
 
     echo "Installing Telegram failed"
-    wget -O "$SCRIPT_DIR/tmp/telegram.tar.xz" "https://telegram.org/dl/desktop/linux"
+    #wget -O "$SCRIPT_DIR/tmp/telegram.tar.xz" "https://telegram.org/dl/desktop/linux"
     if [ $? -eq 0 ]; then
         mkdir "/opt/telegram"
         tar xf "$SCRIPT_DIR/tmp/telegram.tar.xz" -C "/opt/telegram"
@@ -102,12 +102,14 @@ fi
 echo "Installing Neovim"
 apt install neovim -y
 if [ $? -eq 0 ]; then
-    mv "$CFG_DIR/nvim" "$CFG_DIR/nvim.old"
-    cp -R "$CRIPT_DIR/nvim" "$CFG_DIR"
+    mv "$SCRIPT_DIR/nvim" "$CFG_DIR/nvim.old"
+    cp -R "$SCRIPT_DIR/nvim" "$CFG_DIR"
 fi
 
 echo "Installing Rust Cargo"
 #TODO
+
+sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
 #apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential grim slurp wl-clipboard obs-studio vlc remmina -y
 

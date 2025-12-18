@@ -46,6 +46,9 @@ bindsym $mod+Shift+q kill
 # Start your launcher
 bindsym $mod+d exec $menu
 
+# Start Hiddify
+bindsym $mod+Shift+p sudo -E hiddify
+
 floating_modifier $mod normal
 
 # Reload the configuration file
