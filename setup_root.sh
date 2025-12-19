@@ -132,7 +132,7 @@ echo "Installing Rust Cargo"
 sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
 echo "Installing misc applications"
-apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus -y
+apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus nautilus -y
 if [ $? -ne 0 ]; then
     echo "Something went wrong while installing misc application :)"
 fi
