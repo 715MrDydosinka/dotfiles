@@ -5,7 +5,7 @@ input "type:keyboard" {
 
 bindcode 66 input "type:keyboard" xkb_switch_layout next
 
-bindsym Print exec grim -g "$(slurp)" ~/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && sleep 1 && wl-copy < ~/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
+bindsym Print exec grim -g "$(slurp)" ~/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png && sleep 3 && wl-copy < ~/screenshots/screenshot_$(date +%Y-%m-%d_%H-%M-%S).png
 
 set $border pixel 0
 
@@ -22,8 +22,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
-#set $menu bemenu
+set $menu bemenu-run --no-exec | xargs -r swaymsg exec --
 
 #include /etc/sway/config-vars.d/*
 
