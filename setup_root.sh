@@ -12,11 +12,12 @@ SWAYCFG_DIR="$CFG_DIR/sway"
 
 # switch to rolling repos
 if [ -f "/etc/apt/sources.list.d/debian.sources" ]; then
-    # Already new apt
+    echo "Updating old apt repos"
+# Already new apt
 fi
 
 if [ -f "vi /etc/apt/sources.list" ]; then
-
+    echo "Updating new apt repos"
 fi
 
 mkdir -p "$CFG_DIR"
