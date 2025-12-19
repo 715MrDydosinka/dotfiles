@@ -87,8 +87,9 @@ if [ $? -eq 0 ]; then
     wget -O "$SCRIPT_DIR/tmp/telegram.tar.xz" "https://telegram.org/dl/desktop/linux"
     if [ $? -eq 0 ]; then
         mkdir "/opt/telegram"
-        tar xf "$SCRIPT_DIR/tmp/telegram.tar.xz" -C "/opt/telegram"
+        tar xf "$SCRIPT_DIR/tmp/telegram.tar.xz" -C "/opt"
         ln -s "/opt/telegram/Telegram" "/usr/bin/telegram"
+	chown -R "$USERNAME":"$USERNAME" "/opt/telegram"
     else
 	echo "Installing Telegram failder"
     fi
