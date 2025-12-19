@@ -10,6 +10,17 @@ HOMEDIR=$(getent passwd hlupa | cut -d: -f6)
 CFG_DIR="$HOMEDIR/.config"
 SWAYCFG_DIR="$CFG_DIR/sway"
 
+# switch to rolling repos
+if [ -f "/etc/apt/sources.list.d/debian.sources" ]; then
+    # Already new apt
+fi
+
+if [ -f "vi /etc/apt/sources.list" ]; then
+
+fi
+
+mkdir -p "$CFG_DIR"
+
 dpkg --add-architecture i386
 apt update -y
 if [ $? -ne 0 ]; then
