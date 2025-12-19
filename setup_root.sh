@@ -21,6 +21,7 @@ if [ -f "vi /etc/apt/sources.list" ]; then
 fi
 
 mkdir -p "$CFG_DIR"
+chown -R "$USERNAME":"$USERNAME" "$CFG_DIR"
 
 dpkg --add-architecture i386
 apt update -y
@@ -49,7 +50,7 @@ else
 fi
 
 echo "Installing Sway"
-apt install sway swaylock xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
+apt install sway swaylock dmenu xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
 if [ $? -eq 0 ]; then
 
     mv "$SWAYCFG_DIR" "$CFG_DIR/sway.old"
@@ -132,6 +133,8 @@ apt install alacritty firefox-esr darktable qbittorrent filezilla build-essentia
 if [ $? -ne 0 ]; then
     echo "Something went wrong while installing misc application :)"
 fi
+
+chown -R "$USERNAME":"$USERNAME" "$CFG_DIR"
 
 echo ""
 echo ""
