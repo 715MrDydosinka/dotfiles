@@ -44,13 +44,16 @@ if [ $? -eq 0 ]; then
     usermod -s "/usr/bin/fish" "$USERNAME"
     mkdir -p "$CFG_DIR/fish"
     mv "$CFG_DIR/config.fish" "$CFG_DIR/config.fish.old"
-    cp "$SCRIPT_DIR/fish_config" "$CFG_DIR/config.fish"
+    if [ -f "$CFG_DIR/fish/config.fish" ];
+    	mv "$CFG_DIR/fish/config.fish" "$CFG_DIR/fish/config.fish.old"
+    fi
+    cp "$SCRIPT_DIR/fish_config" "$CFG_DIR/fish/config.fish"
 else
     echo "Installing Fish failed"
 fi
 
 echo "Installing Sway"
-apt install sway swaylock dmenu xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
+apt install sway swaylock bemenu xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
 if [ $? -eq 0 ]; then
 
     mv "$SWAYCFG_DIR" "$CFG_DIR/sway.old"
@@ -64,7 +67,7 @@ else
     echo "Installing Sway failed"
 fi
 
-echo "Installing fetches"
+echo "Installing Fetches"
 apt install fastfetch hyfetch -y
 if [ $? -eq 0 ]; then
     cp "$SCRIPT_DIR/hyfetch_config" "$CFG_DIR/hyfetch.json"
