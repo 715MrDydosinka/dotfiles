@@ -48,6 +48,9 @@ bindsym $mod+d exec $menu
 # Start Hiddify
 bindsym $mod+Shift+p exec sudo -E hiddify
 
+# Swaylock
+bindsym $mod+Shift+o exec swaylock
+
 floating_modifier $mod normal
 
 # Reload the configuration file
