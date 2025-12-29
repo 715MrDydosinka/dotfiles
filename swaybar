@@ -1,5 +1,22 @@
 #!/bin/sh
+IS_SHOWN=0
+
 while 
-	date +'%Y-%m-%d %I:%M:%S %p'; do sleep 1
+    
+    percents=$(cat /sys/class/power_supply/BAT0/capacity)
+    time=$(date +'%Y-%m-%d %H:%M:%S')
+
+    if [ $percents -le 15 ]; then
+        if [ $IS_SHOWN -eq 0 ]; then
+            IS_SHOWN=1
+            notify-send "Low battery!"
+        fi
+    else
+        IS_SHOWN=0
+    fi
+
+    echo "BAT: $percents | $time"
+
+    do sleep 1
 done
 
