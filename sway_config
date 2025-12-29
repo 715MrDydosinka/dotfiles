@@ -30,11 +30,6 @@ output * bg /home/hlupa/.config/sway/wallpaper.jpg fill
 
 #output HDMI-A-1 resolution 1920x1080 position 1920,0
 
-# exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-#          before-sleep 'swaylock -f -c 000000'
-
 ### Key bindings
 # Start a terminal
 bindsym $mod+Return exec $term
