@@ -44,7 +44,7 @@ if [ $? -eq 0 ]; then
     usermod -s "/usr/bin/fish" "$USERNAME"
     mkdir -p "$CFG_DIR/fish"
     mv "$CFG_DIR/config.fish" "$CFG_DIR/config.fish.old"
-    if [ -f "$CFG_DIR/fish/config.fish" ];
+    if [ -f "$CFG_DIR/fish/config.fish" ]; then
     	mv "$CFG_DIR/fish/config.fish" "$CFG_DIR/fish/config.fish.old"
     fi
     cp "$SCRIPT_DIR/fish_config" "$CFG_DIR/fish/config.fish"
@@ -132,7 +132,7 @@ echo "Installing Rust Cargo"
 sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
 echo "Installing misc applications"
-apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus nautilus -y
+apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus nautilus minicom -y
 if [ $? -ne 0 ]; then
     echo "Something went wrong while installing misc application :)"
 fi
