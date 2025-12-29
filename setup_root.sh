@@ -10,6 +10,8 @@ HOMEDIR=$(getent passwd hlupa | cut -d: -f6)
 CFG_DIR="$HOMEDIR/.config"
 SWAYCFG_DIR="$CFG_DIR/sway"
 
+timedatectl set-timezone Europe/Moscow
+
 # switch to rolling repos
 if [ -f "/etc/apt/sources.list.d/debian.sources" ]; then
     echo "Updating old apt repos"
@@ -53,7 +55,7 @@ else
 fi
 
 echo "Installing Sway"
-apt install sway swaylock bemenu xwayland mako-notifier libnotify-bin grim slurp wl-clipboard -y
+apt install sway swaylock bemenu xwayland mako-notifier libnotify-bin grim slurp wl-clipboard dunst -y
 if [ $? -eq 0 ]; then
 
     mv "$SWAYCFG_DIR" "$CFG_DIR/sway.old"
