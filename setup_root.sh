@@ -92,9 +92,8 @@ if [ $? -eq 0 ]; then
     echo "Installing Telegram failed"
     wget -O "$SCRIPT_DIR/tmp/telegram.tar.xz" "https://telegram.org/dl/desktop/linux"
     if [ $? -eq 0 ]; then
-        mkdir "/opt/telegram"
         tar xf "$SCRIPT_DIR/tmp/telegram.tar.xz" -C "/opt"
-        ln -s "/opt/telegram/Telegram" "/usr/bin/telegram"
+        ln -s "/opt/Telegram/Telegram" "/usr/bin/telegram"
 	chown -R "$USERNAME":"$USERNAME" "/opt/telegram"
     else
 	echo "Installing Telegram failder"
@@ -134,7 +133,7 @@ echo "Installing Rust Cargo"
 sed -i.bak 's/Debian/Lesbian/g' /etc/os-release
 
 echo "Installing misc applications"
-apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential obs-studio vlc remmina cmus nautilus minicom -y
+apt install alacritty firefox-esr darktable qbittorrent filezilla build-essential cmake network-manager obs-studio remmina cmus nautilus minicom -y
 if [ $? -ne 0 ]; then
     echo "Something went wrong while installing misc application :)"
 fi
